@@ -1,7 +1,12 @@
-# VIT Events - Frontend
+VIT Events - Vite frontend
 
-Run:
-npm install
-npm start
+Steps:
+1. npm install
+2. copy .env.example to .env and set VITE_API_URL (e.g. http://localhost:5000)
+3. npm run dev
+4. Build: npm run build
 
-By default the frontend will POST to http://localhost:5000/api/events unless REACT_APP_API_URL is set.
+Deploy to Vercel:
+- Set root directory to this project folder
+- Build command: npm run build
+- Output directory: dist

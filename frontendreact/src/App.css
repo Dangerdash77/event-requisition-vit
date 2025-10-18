@@ -1,0 +1,4 @@
+body { background:#f1f5f9; }
+form.card { padding:20px; border-radius:12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); background:white; }
+label { font-weight:600; }
+.small-muted { font-size:0.9rem; color:#6b7280; }
