@@ -51,7 +51,8 @@ export default function EventForm() {
     setMessage(null);
 
     try {
-      const urlBase = import.meta.env.VITE_API_URL || 'http://localhost:5000';\n      const url = `${urlBase}/api/events`;
+      const urlBase = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const url = `${urlBase}/api/events`;
       const fd = new FormData();
       Object.keys(form).forEach(key => {
         if (key === 'collaborationInfo') {
