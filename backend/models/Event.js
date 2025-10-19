@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+// const mongoose = require('mongoose');
 
 const EventSchema = new mongoose.Schema({
   proposedBy: String,
@@ -27,4 +28,5 @@ const EventSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Event', EventSchema);
+// module.exports = mongoose.model('Event', EventSchema);
+export default mongoose.model('Event', EventSchema);

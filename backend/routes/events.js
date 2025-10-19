@@ -1,18 +1,30 @@
-const express = require('express');
-const router = express.Router();
-const multer = require('multer');
-const path = require('path');
-const Event = require('../models/Event');
+import express from 'express';
+import multer from 'multer';
+import path from 'path';
+import Event from '../models/Event.js'; 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
+console.log("✅ Events route file loaded successfully");
+
+// ES Module way to get __filename and __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const router = express.Router();
+
+// Define storage and upload ONLY ONCE
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '..', 'uploads'));
+    // path.join(__dirname, '..', 'uploads') now works with the above definition
+    cb(null, path.join(__dirname, '..', 'uploads')); 
   },
   filename: function (req, file, cb) {
     const unique = Date.now() + '-' + Math.round(Math.random()*1E9);
     cb(null, unique + '-' + file.originalname.replace(/\s+/g,'_'));
   }
 });
+
 const upload = multer({ storage });
 
 router.post('/', upload.single('extProof'), async (req, res) => {
@@ -56,4 +68,4 @@ router.post('/', upload.single('extProof'), async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
